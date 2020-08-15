@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 public class ActivityOne extends AppCompatActivity {
-
+//LIFECYCLE
     String TAG = "ActivityOne";
 
     @Override
