@@ -1,5 +1,6 @@
 package com.zikozee.activitydemo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -75,6 +76,12 @@ public class ActivityOne extends AppCompatActivity implements AdapterView.OnItem
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         final String item = mAdapter.getItem(i);
         Toast.makeText(this, "You selected: " + item, Toast.LENGTH_LONG).show();
+
+
+        //Navigate from Activity_one to Activity_two
+        Intent intent = new Intent(ActivityOne.this, ActivityTwo.class);
+//        Intent intent = new Intent(this, ActivityTwo.class);// a constructor that starts destination from source
+        startActivity(intent);
     }
 
     /*public void clickHandler(View view){
