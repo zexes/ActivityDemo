@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,15 +14,28 @@ import java.util.Date;
 public class ActivityOne extends AppCompatActivity {
 //LIFECYCLE
     String TAG = "ActivityOne";
-    TextView mTextView;
+//    TextView mTextView;
+
+    ListView mListView;
+    ArrayAdapter<String> mAdapter;// its a generic so it can take in any object
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_one);//ONE ACTIVITY HAS A LAYOUT IT DISPLAYS
+//        setContentView(R.layout.activity_one);//ONE ACTIVITY HAS A LAYOUT IT DISPLAYS
+        setContentView(R.layout.activity_one_listview);
         Log.i(TAG, "---onCreate--");
 
-        mTextView = findViewById(R.id.my_text_view);
+//        mTextView = findViewById(R.id.my_text_view);// getting the id of layout
+        mListView = findViewById(R.id.listView);
+        mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+        mAdapter.add("Amazon");
+        mAdapter.add("FlipKart");
+        mAdapter.add("Snapdeal");
+        mAdapter.add("Myntra");
+        mAdapter.add("eBay");
+
+        mListView.setAdapter(mAdapter);
     }
 
     @Override
@@ -53,9 +68,9 @@ public class ActivityOne extends AppCompatActivity {
         Log.i(TAG, "---onDestroy--");
     }
 
-    public void clickHandler(View view){
+    /*public void clickHandler(View view){
         Date date = new Date();
         mTextView.setText("Today is: " + date.toString());
         Toast.makeText(this, "You Clicked Button", Toast.LENGTH_LONG).show();
-    }
+    }*/
 }
