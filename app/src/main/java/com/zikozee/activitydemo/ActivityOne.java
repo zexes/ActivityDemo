@@ -4,17 +4,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Date;
 
 public class ActivityOne extends AppCompatActivity {
 //LIFECYCLE
     String TAG = "ActivityOne";
+    TextView mTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_one);//ONE ACTIVITY HAS A LAYOUT IT DISPLAYS
         Log.i(TAG, "---onCreate--");
+
+        mTextView = findViewById(R.id.my_text_view);
     }
 
     @Override
@@ -48,6 +54,8 @@ public class ActivityOne extends AppCompatActivity {
     }
 
     public void clickHandler(View view){
+        Date date = new Date();
+        mTextView.setText("Today is: " + date.toString());
         Toast.makeText(this, "You Clicked Button", Toast.LENGTH_LONG).show();
     }
 }
