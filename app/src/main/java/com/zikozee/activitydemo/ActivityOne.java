@@ -46,4 +46,8 @@ public class ActivityOne extends AppCompatActivity {
         super.onDestroy();
         Log.i(TAG, "---onDestroy--");
     }
+
+    public void clickHandler(View view){
+        Toast.makeText(this, "You Clicked Button", Toast.LENGTH_LONG).show();
+    }
 }
